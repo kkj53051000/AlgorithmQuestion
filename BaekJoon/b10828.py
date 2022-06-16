@@ -13,7 +13,7 @@ for now in inputArr:
     
     # 5글자 이상 즉, push일때 arr.append()
     if(len(now) > 5): 
-        arr.append(int(now[-1]))
+        arr.append(int(now[5:len(now)]))
 
     
     if (now == "pop"):
