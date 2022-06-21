@@ -1,12 +1,13 @@
 # https://programmers.co.kr/learn/courses/30/lessons/42746
+from itertools import permutations
 
-numbers = [3, 30, 34, 5, 9]	
+numbers = [12, 121]	
 numbersLen = []
 
 for n in numbers:
     numbersLen.append(len(str(n)))
 
-maxNumLen = 4
+maxNumLen = max(numbersLen)
 
 newNumbers = []
 
@@ -26,10 +27,10 @@ print(newNumbers)
 answerList = []
 
 for n in newNumbers:
-    num, len = n
+    num, nowLen = n
 
-    if len < maxNumLen:
-        answerList.append(int(num / 10 ** (maxNumLen - len)))
+    if nowLen < maxNumLen:
+        answerList.append(int(num / 10 ** (maxNumLen - nowLen)))
     else:
         answerList.append(num)
 
@@ -37,7 +38,13 @@ print(answerList)
 
 answer = ""
 
-for n in answerList:
-    answer += str(n)
+realAnswerList = []
 
-print(answer)
+for n in permutations(answerList):
+
+    tempStr = ""
+    for j in list(n):
+        tempStr += str(j)
+    realAnswerList.append(int(tempStr))
+
+print(max(realAnswerList))
