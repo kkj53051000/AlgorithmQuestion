@@ -9,7 +9,8 @@ for i in range(0, len(prices)):
         if prices[i] <= prices[j]:
             tempAnswer += 1
         else:
-            continue
+            tempAnswer += 1
+            break
     answer.append(tempAnswer)
 
 print(answer)
